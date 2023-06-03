@@ -15,7 +15,7 @@ class TransmissionController extends Controller {
     private $logger;
 
     private function getRPCHost() {
-        return $this->config->getAppValue($this->appName, 'rpc-host', 'transmission');
+        return $this->config->getAppValue($this->appName, 'rpc-hostname', 'transmission');
     }
     
     private function getRPCPort() {
