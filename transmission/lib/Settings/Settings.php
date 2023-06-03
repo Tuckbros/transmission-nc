@@ -16,6 +16,7 @@ class Settings implements ISettings {
     public function getForm() {
         $response = new TemplateResponse('transmission', 'settings');
         $response->setParams([
+			'rpc-hostname' => $this->config->getAppValue('transmission', 'rpc-hostname', 'transmission'),
 			'rpc-port' => $this->config->getAppValue('transmission', 'rpc-port', '9091'),
 			'rpc-username' => $this->config->getAppValue('transmission', 'rpc-username', ''),
 			'rpc-password' => $this->config->getAppValue('transmission', 'rpc-password', ''),
