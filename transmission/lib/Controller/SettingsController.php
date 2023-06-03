@@ -22,6 +22,9 @@ class SettingsController extends Controller {
         }
         $this->config->setAppValue('transmission', 'rpc-port', $port);
 
+        $hostname = $this->request->getParam("hostname");
+        $this->config->setAppValue('transmission', 'rpc-hostname', $hostname);
+
         $username = $this->request->getParam("username");
         $this->config->setAppValue('transmission', 'rpc-username', $username);
 
