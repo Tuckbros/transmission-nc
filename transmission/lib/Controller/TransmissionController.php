@@ -14,6 +14,10 @@ class TransmissionController extends Controller {
     private $config;
     private $logger;
 
+    private function getRPCHost() {
+        return $this->config->getAppValue($this->appName, 'rpc-host', 'transmission');
+    }
+    
     private function getRPCPort() {
         return $this->config->getAppValue($this->appName, 'rpc-port', '9091');
     }
@@ -25,7 +29,7 @@ class TransmissionController extends Controller {
     }
 
     public function rpc($method, $arguments) {
-        $host = "transmission";
+        $host = $this->getRPCHost();
         $port = $this->getRPCPort();
         $url = 'http://' . $host . ':' . $port . '/transmission/rpc';
         $headers_to_forward = [
